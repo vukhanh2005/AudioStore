@@ -6,13 +6,6 @@ function TrangChu() {
     })
     return (
         <div className="trang-chu">
-            <div className="trang-chu-title-content">
-                <h1>Toàn bộ sản phẩm</h1>
-                <hr></hr>
-            </div>
-            <div className="products-box">
-
-            </div>
         </div>
     )
 }

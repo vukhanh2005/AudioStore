@@ -85,9 +85,8 @@ body{
 }
 .products-result-wrapper{
   display: flex;
-  flex: 1;
   overflow: scroll;
-
+  
   flex-wrap: wrap;
 }
 .product-wrapper{
