@@ -1,0 +1,254 @@
+*{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+.banner{
+  text-align: center;
+  background-color: seagreen;
+}
+
+.top-menu{
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+.top-menu > a{
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top-menu > a:hover{
+  background-color: rgba(231, 225, 225, 0.512)
+}
+.top-menu > a.active{
+  background-color: white;
+}
+/* Left menu */
+.left-menu{
+    border: 2px solid black;
+    width: 20%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left-menu > h2{
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.left-menu > ul{
+    list-style: none;
+}
+
+.left-menu > ul > li > a{
+    display: block;
+
+    text-decoration: none;
+    color: black;
+
+    padding: 12px;
+    transition: 0.2s;
+
+    border-radius: 10px;
+}
+.left-menu > ul > li > a.active{
+    background-color: white;
+}
+
+.left-menu > ul > li > a:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* All products page */
+.default-content-box{
+  display: flex;
+}
+/* trang-chu-result-wrapper */
+.trang-chu-result-wrapper{
+  display: flex;
+  border: 2px solid black;
+  height: 70vh;
+}
+.products-result-wrapper{
+  display: flex;
+  flex: 1;
+  overflow: scroll;
+
+  flex-wrap: wrap;
+}
+.product-wrapper{
+  border: 2px solid black;
+  width: 23%;
+  height: 350px;
+  margin: 10px;
+
+  border-radius: 10px;
+  padding: 20px;
+  
+}
+/* Login page */
+.dang-nhap-layout-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-login{
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+.button-login{
+  display: flex;
+  justify-content: center;
+
+  margin-top: 20px;
+}
+.login-input-box > label{
+  display: inline-block;
+  min-width: 100px;
+}
+.login-input-box > input{
+  height: 80%;
+  border-radius: 10px;
+  padding: 5px;
+}
+.login-input-box{
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.form-login-button-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-button{
+  width: 100px;
+  height: 30px;
+
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.sign-up-box > a{
+  text-decoration: none;
+  font-size: 18px;
+}
+.title-is-have-acc{
+  margin-right: 10px;
+}
+/* register page */
+.dang-ky-layout-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.register-page{
+  
+}
+.form-register{
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 30px;
+}
+.register-input-box{
+  padding: 20px;
+}
+.register-input-box > label{
+  display: inline-block;
+  min-width: 120px;
+}
+.register-input-box > input{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+.register-button{
+  width: 70px;
+  height: 30px;
+
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.register-button-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.is-have-acc-title{
+  margin-right: 10px;
+}
+.Already-Acc-Box > a{
+  text-decoration: none;
+  color: brown;
+}
+/* Contact page */
+.contact-page{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-contact{
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+.contact-input-box > label{
+  display: inline-block;
+  min-width: 110px;
+}
+.contact-input-box > input{
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+.contact-input-box > textarea{
+  padding: 5px;
+}
+.contact-input-box{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.contact-button-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.contact-button{
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.trang-chu-title-content{
+  width: 100%;
+}
+.trang-chu{
+  width: 100%;
+}
