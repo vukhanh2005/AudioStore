@@ -6,6 +6,10 @@
 body{
   background: linear-gradient(135deg, #667eea, #764ba2);
 }
+.main-layout{
+  width: 100%;
+  height: 100vh;
+}
 .banner{
   text-align: center;
   background-color: seagreen;
@@ -81,23 +85,49 @@ body{
 .trang-chu-result-wrapper{
   display: flex;
   border: 2px solid black;
+  width: 100%;
   height: 70vh;
+}
+.trang-chu{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 .products-result-wrapper{
   display: flex;
-  overflow: scroll;
+  overflow-y: scroll;
   
   flex-wrap: wrap;
 }
 .product-wrapper{
   border: 2px solid black;
   width: 23%;
-  height: 350px;
+  height: auto;
   margin: 10px;
 
   border-radius: 10px;
   padding: 20px;
   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.info-product-box{
+  text-align: center;
+}
+.image-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  
+}
+.image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  border-radius: 20px;
 }
 /* Login page */
 .dang-nhap-layout-wrapper{
