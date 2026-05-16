@@ -16,10 +16,8 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<ProductResponse> getAllProducts(String category) {
-        List<Product> products = category == null || category.isBlank()
-                ? productRepository.findAll()
-                : productRepository.findByCategorySlug(category);
+    public List<ProductResponse> getAllProducts() {
+        List<Product> products = productRepository.findAll();
 
         return products.stream().map(this::toResponse).toList();
     }

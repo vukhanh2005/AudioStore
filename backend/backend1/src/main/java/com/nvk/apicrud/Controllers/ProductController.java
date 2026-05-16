@@ -28,18 +28,13 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-
+//    VTH an cut
     @GetMapping
-    public List<ProductResponse> getAllProducts(@RequestParam(required = false) String category) {
-        return productService.getAllProducts(category);
+    public List<ProductResponse> getAllProducts() {
+        return productService.getAllProducts();
     }
-
-    @GetMapping("/{id:[0-9]+}")
-    public ProductResponse getProductById(@PathVariable Integer id) {
-        return productService.getProductById(id);
-    }
-
-    @GetMapping("/{category}")
+//    VTH an cut
+    @GetMapping("/category/{category}")
     public List<ProductResponse> getProductsByCategory(@PathVariable String category) {
         return productService.getProductsByCategory(category);
     }
