@@ -19,9 +19,16 @@ public class ProductService {
     public List<ProductResponse> getAllProducts(String category) {
         List<Product> products = category == null || category.isBlank()
                 ? productRepository.findAll()
-                : productRepository.findByCategory(category);
+                : productRepository.findByCategorySlug(category);
 
         return products.stream().map(this::toResponse).toList();
+    }
+
+    public List<ProductResponse> getProductsByCategory(String category) {
+        return productRepository.findByCategorySlug(category)
+                .stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     public ProductResponse getProductById(Integer id) {
