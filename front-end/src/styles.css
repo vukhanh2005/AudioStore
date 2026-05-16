@@ -112,8 +112,18 @@ body{
   flex-direction: column;
   justify-content: center;
 }
+.price-product-box{
+  font-size: 25px;
+  color: black;
+  margin-top: 10px;
+  text-align: center;
+}
+.product-wrapper > a{
+  text-decoration: none;
+}
 .info-product-box{
   text-align: center;
+  color: black;
 }
 .image-box {
   display: flex;

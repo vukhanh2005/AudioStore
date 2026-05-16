@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function LoginPage() {
   return (
     <div className="login-page">
-      <form className="form-login" action={"/login"}>
+      <form className="form-login" action={"/login"} method="post">
         <div className="login-input-box">
           <label>
             <b>Username</b>
