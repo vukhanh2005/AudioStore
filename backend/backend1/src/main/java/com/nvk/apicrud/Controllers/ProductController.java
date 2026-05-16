@@ -34,9 +34,14 @@ public class ProductController {
         return productService.getAllProducts(category);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id:[0-9]+}")
     public ProductResponse getProductById(@PathVariable Integer id) {
         return productService.getProductById(id);
+    }
+
+    @GetMapping("/{category}")
+    public List<ProductResponse> getProductsByCategory(@PathVariable String category) {
+        return productService.getProductsByCategory(category);
     }
 
     @PostMapping
