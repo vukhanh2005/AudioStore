@@ -1,7 +1,24 @@
+import { Link } from "react-router-dom";
+
 // product là dữ liệu sản phẩm dạng json
-function Product({product}) {
+function Product({product, isDetail = false}) {
     const price = Number(product.price);
     const oldPrice = Number(product.oldPrice ?? product.old_price);
+    const content = (
+        <>
+            <div className="image-box">
+                <img src={product.image} alt="image-product" />
+            </div>
+            <div className="info-product-box">
+                <p><b>{product.name}</b></p>
+                {isDetail && <p>Danh mục: {product.category}</p>}
+                {isDetail && <p>Số lượng còn lại: {product.soluong ?? 0}</p>}
+            </div>
+            <div className="price-product-box">
+                {renderPrice()}
+            </div>
+        </>
+    );
 
     function renderPrice() {
         if (price < 0) {
@@ -25,18 +42,8 @@ function Product({product}) {
     }
 
     return ( 
-        <div className="product-wrapper">
-            <a href="">
-                <div className="image-box">
-                    <img src={product.image} alt="image-product" />
-                </div>
-                <div className="info-product-box">
-                    <p><b>{product.name}</b></p>
-                </div>
-                <div className="price-product-box">
-                    {renderPrice()}
-                </div>
-            </a>
+        <div className={`product-wrapper ${isDetail ? "product-wrapper--detail" : ""}`}>
+            {isDetail ? content : <Link to={`/san-pham/${product.id}`}>{content}</Link>}
         </div>
      );
 }

@@ -9,17 +9,19 @@ public class ProductResponse {
     private Integer price;
     private Integer oldPrice;
     private String image;
+    private Integer soluong;
     private Integer status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public ProductResponse(Integer id, String name, String category, Integer price, Integer oldPrice, String image, Integer status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public ProductResponse(Integer id, String name, String category, Integer price, Integer oldPrice, String image, Integer soluong, Integer status, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.oldPrice = oldPrice;
         this.image = image;
+        this.soluong = soluong;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -47,6 +49,10 @@ public class ProductResponse {
 
     public String getImage() {
         return image;
+    }
+
+    public Integer getSoluong() {
+        return soluong;
     }
 
     public Integer getStatus() {

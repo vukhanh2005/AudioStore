@@ -7,6 +7,8 @@ import DangNhapLayout from './Layouts/DangNhapLayout'
 import DangKyLayout from './Layouts/DangKyLayout'
 import RegisterPage from './pages/RegisterPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
+import ProductDetailPage from './pages/ProductDetailPage.jsx'
+import OrderHistoryPage from './pages/OrderHistoryPage.jsx'
 function App() {
   return (
     <Routes>
@@ -17,6 +19,8 @@ function App() {
         <Route path="/hang-moi" element={<ProductsSection category={"hang-moi"}/>}></Route>
         <Route path="/hang-ban-chay" element={<ProductsSection category={"hang-ban-chay"}/>}></Route>
         <Route path="/hang-giam-gia" element={<ProductsSection category={"hang-giam-gia"}/>}></Route>
+        <Route path="/san-pham/:productId" element={<ProductDetailPage/>}></Route>
+        <Route path="/lich-su-dat-hang" element={<OrderHistoryPage/>}></Route>
       </Route>
       {/* __________________________ */}
       <Route path="/dang-nhap" element={

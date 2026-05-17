@@ -95,6 +95,8 @@ button:disabled{
   top: 12px;
   z-index: 5;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px;
   width: 100%;
   min-height: 58px;
@@ -107,7 +109,23 @@ button:disabled{
   backdrop-filter: blur(12px);
 }
 
-.top-menu > a{
+.top-menu-links{
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  gap: 8px;
+}
+
+.top-menu-auth{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.top-menu-links > a,
+.top-menu-auth > a{
   flex: 1;
   min-width: max-content;
   padding: 12px 14px;
@@ -121,15 +139,45 @@ button:disabled{
   transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.top-menu > a:hover{
+.top-menu-auth > a{
+  flex: 0 0 auto;
+}
+
+.top-menu-links > a:hover,
+.top-menu-auth > a:hover{
   color: var(--primary-dark);
   background: var(--surface-soft);
 }
 
-.top-menu > a.active{
+.top-menu-links > a.active,
+.top-menu-auth > a.active{
   color: white;
   background: var(--primary);
   box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
+}
+
+.user-avatar{
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface-soft);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.logout-button{
+  min-height: 38px;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--primary-dark);
+  font-weight: 700;
+  background: var(--surface-soft);
+}
+
+.logout-button:hover{
+  background: #ccfbf1;
 }
 
 /* Left menu */
@@ -282,6 +330,143 @@ button:disabled{
   font-size: 15px;
   font-weight: 600;
   text-decoration: line-through;
+}
+
+.product-wrapper--detail{
+  width: min(100%, 430px);
+  min-height: auto;
+}
+
+.product-wrapper--detail:hover{
+  transform: none;
+}
+
+.product-detail-page,
+.history-page{
+  flex: 1;
+  min-height: 100%;
+  padding: 8px 4px 24px;
+}
+
+.product-detail{
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-detail-actions,
+.history-page{
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.product-detail-actions{
+  width: min(100%, 360px);
+  display: grid;
+  gap: 16px;
+}
+
+.primary-button{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--primary);
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.28);
+}
+
+.primary-button:hover{
+  background: var(--primary-dark);
+}
+
+.notice{
+  padding: 18px;
+  color: var(--muted);
+}
+
+.popup-backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup{
+  position: relative;
+  width: min(100%, 420px);
+  border-radius: 8px;
+  padding: 28px;
+  background: white;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+  display: grid;
+  gap: 14px;
+}
+
+.popup-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--muted);
+  background: var(--surface-soft);
+}
+
+.contact-popup h3{
+  padding-right: 28px;
+  font-size: 20px;
+}
+
+.contact-popup p{
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.contact-popup.success h3{
+  color: var(--success);
+}
+
+.contact-popup.error h3{
+  color: var(--danger);
+}
+
+.history-list{
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.history-item{
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--surface-soft);
+}
+
+.history-item h3{
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.product-detail-title{
+  display: block;
+  margin-bottom: 14px;
 }
 
 /* Shared form pages */
@@ -475,7 +660,12 @@ button:disabled{
     justify-content: flex-start;
   }
 
-  .top-menu > a{
+  .top-menu-links{
+    flex: 0 0 auto;
+  }
+
+  .top-menu-links > a,
+  .top-menu-auth > a{
     flex: 0 0 auto;
   }
 

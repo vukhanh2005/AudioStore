@@ -6,6 +6,7 @@ public class ProductRequest {
     private Integer price;
     private Integer oldPrice;
     private String image;
+    private Integer soluong;
     private Integer status;
 
     public String getName() {
@@ -46,6 +47,14 @@ public class ProductRequest {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(Integer soluong) {
+        this.soluong = soluong;
     }
 
     public Integer getStatus() {
