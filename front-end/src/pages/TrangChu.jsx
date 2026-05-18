@@ -1,5 +1,5 @@
-import Product from "../../components/Product";
-import { getProducts } from "../../services/api";
+import Product from "../components/Product";
+import { getProducts } from "../services/api";
 import {useState, useEffect} from 'react'
 function TrangChu() {
     const [products, setProducts] = useState([])

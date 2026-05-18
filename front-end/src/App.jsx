@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import MainLayout from "./components/MainLayout.jsx";
-import TrangChu from "./pages/TrangChu/index.jsx";
 import ProductsSection from "./components/ProductsSection.jsx";
 import LoginPage from './pages/LoginPage.jsx';
 import DangNhapLayout from './Layouts/DangNhapLayout'
@@ -9,6 +8,7 @@ import RegisterPage from './pages/RegisterPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import ProductDetailPage from './pages/ProductDetailPage.jsx'
 import OrderHistoryPage from './pages/OrderHistoryPage.jsx'
+import TrangChu from './pages/TrangChu.jsx'
 function App() {
   return (
     <Routes>
