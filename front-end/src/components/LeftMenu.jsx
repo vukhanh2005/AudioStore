@@ -1,11 +1,9 @@
 import { NavLink } from "react-router-dom";
 
 const categories = [
+  {name: "Tất cả", path: "/"},
   {name: "Tai nghe", path: "/tai-nghe"},
   {name: "Micro", path: "/micro"},
-  {name: "Hàng mới", path: "/hang-moi"},
-  {name: "Hàng bán chạy", path: "/hang-ban-chay"},
-  {name: "Hàng giảm giá", path: "/hang-giam-gia"},
 ];
 
 function LeftMenu() {

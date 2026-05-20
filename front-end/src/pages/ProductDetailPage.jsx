@@ -61,14 +61,7 @@ function ProductDetailPage() {
       }));
     } catch (error) {
       if (error.status === 401) {
-        setCurrentAccount(null);
-        localStorage.removeItem("currentUser");
-        setPopup({
-          type: "login",
-          title: "Phiên đăng nhập đã hết",
-          message: "Vui lòng đăng nhập lại trước khi đặt hàng."
-        });
-        return;
+
       }
 
       setPopup({
@@ -106,7 +99,7 @@ function ProductDetailPage() {
         <div className="product-detail-actions">
           <p>
             {currentAccount
-              ? `Đang đăng nhập: ${currentAccount.fullName || currentAccount.username}`
+              ? ""
               : "Bạn chưa đăng nhập"}
           </p>
           <button className="primary-button" type="button" onClick={handleOrder} disabled={isOrdering}>
