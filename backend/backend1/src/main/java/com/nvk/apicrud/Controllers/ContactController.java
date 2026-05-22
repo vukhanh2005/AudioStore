@@ -2,6 +2,7 @@ package com.nvk.apicrud.Controllers;
 
 import com.nvk.apicrud.DTO.ContactRequest;
 import com.nvk.apicrud.DTO.ContactResponse;
+import com.nvk.apicrud.Services.Alter.AlterContactService;
 import com.nvk.apicrud.Services.ContactService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class ContactController {
     }
 
     @PostMapping
-    public ContactResponse createContact(@RequestBody ContactRequest request) {
-        return contactService.createContact(request);
+    public ContactResponse sendContact(@RequestBody ContactRequest request) throws Exception{
+        return new AlterContactService().sendContact(request);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

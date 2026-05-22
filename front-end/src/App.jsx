@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import MainLayout from "./components/MainLayout.jsx";
-import TrangChu from "./pages/TrangChu/index.jsx";
 import ProductsSection from "./components/ProductsSection.jsx";
 import LoginPage from './pages/LoginPage.jsx';
 import DangNhapLayout from './Layouts/DangNhapLayout'
@@ -9,6 +8,9 @@ import RegisterPage from './pages/RegisterPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import ProductDetailPage from './pages/ProductDetailPage.jsx'
 import OrderHistoryPage from './pages/OrderHistoryPage.jsx'
+import TrangChu from './pages/TrangChu.jsx'
+import HistoryLayout from './Layouts/HistoryLayout/index.jsx';
+import ContactLayout from './Layouts/ContactLayout/index.jsx';
 function App() {
   return (
     <Routes>
@@ -16,12 +18,8 @@ function App() {
         <Route index element={<TrangChu/>}></Route>
         <Route path="/tai-nghe" element={<ProductsSection category={"tai-nghe"}/>}></Route>
         <Route path="/micro" element={<ProductsSection category={"micro"}/>}></Route>
-        <Route path="/hang-moi" element={<ProductsSection category={"hang-moi"}/>}></Route>
-        <Route path="/hang-ban-chay" element={<ProductsSection category={"hang-ban-chay"}/>}></Route>
-        <Route path="/hang-giam-gia" element={<ProductsSection category={"hang-giam-gia"}/>}></Route>
-        <Route path="/san-pham/:productId" element={<ProductDetailPage/>}></Route>
-        <Route path="/lich-su-dat-hang" element={<OrderHistoryPage/>}></Route>
       </Route>
+      <Route path="/lich-su-dat-hang" element={<HistoryLayout><OrderHistoryPage/></HistoryLayout>}></Route>
       {/* __________________________ */}
       <Route path="/dang-nhap" element={
         <DangNhapLayout>
@@ -43,10 +41,11 @@ function App() {
       <Route
           path="/lien-he"
           element={
-            <ContactPage/>
+            <ContactLayout><ContactPage/></ContactLayout>
           }
         >
       </Route>
+      <Route path="/san-pham/:productId" element={<ProductDetailPage/>}></Route>
     </Routes>
   );
 }

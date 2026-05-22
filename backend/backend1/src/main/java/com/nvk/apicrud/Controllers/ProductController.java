@@ -2,6 +2,8 @@ package com.nvk.apicrud.Controllers;
 
 import com.nvk.apicrud.DTO.ProductRequest;
 import com.nvk.apicrud.DTO.ProductResponse;
+import com.nvk.apicrud.Entity.Alter.AlterProduct;
+import com.nvk.apicrud.Services.Alter.AlterProductService;
 import com.nvk.apicrud.Services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,13 +33,13 @@ public class ProductController {
     }
 //    VTH an cut
     @GetMapping
-    public List<ProductResponse> getAllProducts() {
-        return productService.getAllProducts();
+    public ArrayList<AlterProduct> getAllProducts() throws Exception{
+        return new AlterProductService().getAllProducts();
     }
 //    VTH an cut
     @GetMapping("/category/{category}")
-    public List<ProductResponse> getProductsByCategory(@PathVariable String category) {
-        return productService.getProductsByCategory(category);
+    public ArrayList<AlterProduct> getProductsByCategory(@PathVariable String category)throws Exception{
+        return new AlterProductService().getProductsByCategory(category);
     }
 
     @GetMapping("/{id}")
