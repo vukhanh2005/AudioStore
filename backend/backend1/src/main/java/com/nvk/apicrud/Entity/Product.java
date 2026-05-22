@@ -32,6 +32,9 @@ public class Product {
     private String image;
 
     @Column(nullable = false)
+    private Integer soluong = 0;
+
+    @Column(nullable = false)
     private Integer status = 1;
 
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
@@ -86,6 +89,14 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(Integer soluong) {
+        this.soluong = soluong;
     }
 
     public Integer getStatus() {

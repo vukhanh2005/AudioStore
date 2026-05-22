@@ -62,6 +62,7 @@ public class ProductService {
         product.setPrice(request.getPrice());
         product.setOldPrice(request.getOldPrice() == null ? request.getPrice() : request.getOldPrice());
         product.setImage(request.getImage());
+        product.setSoluong(request.getSoluong() == null ? 0 : request.getSoluong());
         product.setStatus(request.getStatus() == null ? 1 : request.getStatus());
     }
 
@@ -73,6 +74,7 @@ public class ProductService {
                 product.getPrice(),
                 product.getOldPrice(),
                 product.getImage(),
+                product.getSoluong(),
                 product.getStatus(),
                 product.getCreatedAt(),
                 product.getUpdatedAt()

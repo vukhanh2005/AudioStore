@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"}, allowCredentials = "true")
 public class ProductController {
     private final ProductService productService;
 
@@ -37,6 +37,11 @@ public class ProductController {
     @GetMapping("/category/{category}")
     public List<ProductResponse> getProductsByCategory(@PathVariable String category) {
         return productService.getProductsByCategory(category);
+    }
+
+    @GetMapping("/{id}")
+    public ProductResponse getProductById(@PathVariable Integer id) {
+        return productService.getProductById(id);
     }
 
     @PostMapping

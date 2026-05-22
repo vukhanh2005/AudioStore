@@ -31,7 +31,7 @@ function TrangChu() {
         <div className="trang-chu">
             {
                 products.map((product)=>{
-                    return <Product product={product}/>
+                    return <Product key={product.id} product={product}/>
                 })
             }
         </div>
