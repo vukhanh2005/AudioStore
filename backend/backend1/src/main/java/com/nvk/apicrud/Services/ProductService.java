@@ -1,7 +1,7 @@
 package com.nvk.apicrud.Services;
 
-import com.nvk.apicrud.DTO.ProductRequest;
-import com.nvk.apicrud.DTO.ProductResponse;
+import com.nvk.apicrud.DTO.Product.ProductRequest;
+import com.nvk.apicrud.DTO.Product.ProductResponse;
 import com.nvk.apicrud.Entity.Product;
 import com.nvk.apicrud.Repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class ProductService {
 
     public List<ProductResponse> getAllProducts() {
         List<Product> products = productRepository.findAll();
-
+        
         return products.stream().map(this::toResponse).toList();
     }
 

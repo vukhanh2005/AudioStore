@@ -1,6 +1,6 @@
 package com.nvk.apicrud.Controllers;
 
-import com.nvk.apicrud.DTO.OrderResponse;
+import com.nvk.apicrud.DTO.Order.OrderResponse;
 import com.nvk.apicrud.Services.OrderService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;

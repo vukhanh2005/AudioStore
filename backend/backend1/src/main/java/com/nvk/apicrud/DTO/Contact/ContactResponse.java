@@ -1,4 +1,4 @@
-package com.nvk.apicrud.DTO;
+package com.nvk.apicrud.DTO.Contact;
 
 public class ContactResponse {
     private final Integer id;

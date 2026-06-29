@@ -1,4 +1,4 @@
-package com.nvk.apicrud.DTO;
+package com.nvk.apicrud.DTO.Order;
 
 import java.time.LocalDateTime;
 

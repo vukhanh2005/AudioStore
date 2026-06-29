@@ -1,7 +1,7 @@
 package com.nvk.apicrud.Services;
 
-import com.nvk.apicrud.DTO.ContactRequest;
-import com.nvk.apicrud.DTO.ContactResponse;
+import com.nvk.apicrud.DTO.Contact.ContactRequest;
+import com.nvk.apicrud.DTO.Contact.ContactResponse;
 import com.nvk.apicrud.Entity.Contact;
 import com.nvk.apicrud.Repository.ContactRepository;
 import org.springframework.stereotype.Service;

@@ -44,14 +44,14 @@ function LoginPage() {
       <form className="form-login" onSubmit={handleSubmit}>
         <div className="login-input-box">
           <label>
-            <b>Username</b>
+            <b>Email</b>
           </label>
           <input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
-            placeholder="Nhập tên đăng nhập"
+            placeholder="Nhập email"
             required
           />
         </div>

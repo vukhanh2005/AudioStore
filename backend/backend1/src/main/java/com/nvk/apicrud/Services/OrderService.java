@@ -1,7 +1,7 @@
 package com.nvk.apicrud.Services;
 
-import com.nvk.apicrud.DTO.AccountResponse;
-import com.nvk.apicrud.DTO.OrderResponse;
+import com.nvk.apicrud.DTO.Account.AccountResponse;
+import com.nvk.apicrud.DTO.Order.OrderResponse;
 import com.nvk.apicrud.Entity.Order;
 import com.nvk.apicrud.Entity.Product;
 import com.nvk.apicrud.Repository.OrderRepository;

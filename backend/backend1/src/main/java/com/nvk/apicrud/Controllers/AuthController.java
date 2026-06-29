@@ -1,10 +1,8 @@
 package com.nvk.apicrud.Controllers;
 
-import com.nvk.apicrud.DTO.AccountRequest;
-import com.nvk.apicrud.DTO.AccountResponse;
+import com.nvk.apicrud.DTO.Account.AccountRequest;
+import com.nvk.apicrud.DTO.Account.AccountResponse;
 import com.nvk.apicrud.Services.AccountService;
-import com.nvk.apicrud.Services.Alter.AlterAccountService;
-import com.nvk.apicrud.Services.Alter.AlterProductService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,18 +27,18 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public AccountResponse login(@RequestBody AccountRequest request, HttpSession session) throws Exception{
-        return new AlterAccountService().login(request, session);
+    public void login(@RequestBody AccountRequest request, HttpSession session){
+        accountService.login(request, session);
     }
 
     @PostMapping("/register")
-    public AccountResponse register(@RequestBody AccountRequest request, HttpSession session) throws Exception{
-        return new AlterAccountService().register(request, session);
+    public void register(@RequestBody AccountRequest request, HttpSession session){
+        accountService.register(request, session);
     }
 
     @GetMapping("/me")
-    public AccountResponse me(HttpSession session) throws Exception{
-        return new AlterAccountService().currentAccount(session);
+    public AccountResponse me(HttpSession session){
+        return accountService.currentAccount(session);
     }
 
     @PostMapping("/logout")
