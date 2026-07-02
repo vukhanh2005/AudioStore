@@ -27,13 +27,13 @@ public class OrderController {
     }
 
     @PostMapping("/order/{id}")
-    public OrderResponse orderProduct(@PathVariable Integer id, HttpSession session) {
-        return orderService.orderProduct(id, session);
+    public OrderResponse orderProduct(@PathVariable Integer id) {
+        return orderService.orderProduct(id);
     }
 
     @GetMapping("/orders/history")
-    public List<OrderResponse> getHistory(HttpSession session) {
-        return orderService.getHistory(session);
+    public List<OrderResponse> getHistory() {
+        return orderService.getHistory();
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

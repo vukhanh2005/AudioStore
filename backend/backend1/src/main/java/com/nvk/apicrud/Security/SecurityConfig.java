@@ -26,15 +26,17 @@ public class SecurityConfig {
                 .cors(cors -> {})
                 .csrf(crsf -> crsf.disable())
                 .authorizeHttpRequests(auth -> auth
-
+                    //----------------------------
                     .requestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/me", "/api/products",
                             "/api/products/category/tai-nghe", "/api/products/category/micro")
                         .permitAll()
 
-                        .anyRequest().authenticated()
+                    //--------------------
+                    .anyRequest().authenticated()
 
 
                 )
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

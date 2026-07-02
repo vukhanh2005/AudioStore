@@ -6,13 +6,15 @@ public class AccountResponse {
     private final String username;
     private final String email;
     private final String message;
+    private final String role;
 
-    public AccountResponse(Integer id, String fullName, String username, String email, String message) {
+    public AccountResponse(Integer id, String fullName, String username, String email, String message, String role) {
         this.id = id;
         this.fullName = fullName;
         this.username = username;
         this.email = email;
         this.message = message;
+        this.role = role;
     }
 
     public Integer getId() {
@@ -31,6 +33,7 @@ public class AccountResponse {
         return email;
     }
     
+    public String getRole(){return role;}
 
     public String getMessage() {
         return message;

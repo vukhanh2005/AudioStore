@@ -5,6 +5,8 @@ import com.nvk.apicrud.DTO.Account.AccountResponse;
 import com.nvk.apicrud.Entity.Account;
 import com.nvk.apicrud.Repository.AccountsRepository;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -48,14 +50,25 @@ public class AccountService {
         accountsRepository.save(account);
     }
 
-    public AccountResponse currentAccount(HttpSession session) {
-        Object account = session.getAttribute(SESSION_ACCOUNT);
-        if (account instanceof AccountResponse) {
-            return (AccountResponse) account;
-        }else{
+    public AccountResponse currentAccount() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+        Object principal = authentication.getPrincipal();
+        if(!(principal instanceof Account)){
+            System.out.println("Not login ever");
+            return null;
+        }else{
+            Account account = (Account) authentication.getPrincipal();
+            AccountResponse response = new AccountResponse(
+                    account.getId(),
+                    account.getFullName(),
+                    account.getUsername(),
+                    account.getEmail(),
+                    "mmb",
+                    account.getRole()
+            );
+            return response;
         }
-        return null;
     }
 
     public Optional<Account> findAccountByUsername(String username){

@@ -17,7 +17,7 @@ function TopMenu() {
   useEffect(() => {
     getCurrentAccount()
       .then((account) => {
-        // Đã từng đăng nhập
+        // console.log("Account", account);
           setCurrentUser(account);
       }).catch((error)=>{
         // Chưa từng đăng nhập
@@ -27,7 +27,6 @@ function TopMenu() {
     function handleAuthChanged() {
       setCurrentUser(readStoredUser());
     }
-
     window.addEventListener("authChanged", handleAuthChanged);
     window.addEventListener("storage", handleAuthChanged);
 

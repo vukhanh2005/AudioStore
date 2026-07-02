@@ -50,6 +50,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                     return;
                 }
+                Account currentAccount = account.get();
                 String role = account.get().getRole();
 
                 List<GrantedAuthority> grantedAuthorities = List.of(
@@ -57,10 +58,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 );
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
-                                account,null, grantedAuthorities
+                                currentAccount
+                                ,null
+                                , grantedAuthorities
                         );
 
                 SecurityContextHolder.getContext().setAuthentication(authentication);
+
             } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 return;

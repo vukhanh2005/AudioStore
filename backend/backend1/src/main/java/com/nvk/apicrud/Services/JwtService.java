@@ -8,7 +8,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 public class JwtService {
-    public static SecretKey secretKey = Keys.hmacShaKeyFor("NguyenVuKhanh24112005".getBytes());
+    public static SecretKey secretKey = Keys.hmacShaKeyFor("Ijet22lj6BhJJN9Zc7xxk0ZINJf55GLYBTOKhau2ved".getBytes());
     public static String generateToken(String username){
         return Jwts.builder()
                 .subject(username)

@@ -37,8 +37,9 @@ public class AuthController {
     }
 
     @GetMapping("/me")
-    public AccountResponse me(HttpSession session){
-        return accountService.currentAccount(session);
+    public AccountResponse me(){
+        System.out.println("Called me");
+        return accountService.currentAccount();
     }
 
     @PostMapping("/logout")

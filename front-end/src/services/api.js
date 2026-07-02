@@ -1,16 +1,18 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api";
 
 async function request(path, options = {}) {
-  const response = await fetch(`${API_URL}${path}`, {
+  var items = {
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
       ...(options.headers || {})
     },
     ...options
-  });
+  }
+  const response = await fetch(`${API_URL}${path}`, items);
   
-  if (!response.ok) {
+  
+  if (!response.ok || response == null) {
     let message = "Không thể lấy dữ liệu từ server";
 
     try {
@@ -53,7 +55,15 @@ export function register(account) {
 }
 
 export function getCurrentAccount() {
-  return request("/auth/me");
+  var token = localStorage.getItem("myToken")
+
+  return request("/auth/me", 
+    token != null ? {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    } : {}
+  );
 }
 
 export function logout() {

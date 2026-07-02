@@ -25,8 +25,8 @@ public class OrderService {
     }
 
     @Transactional
-    public OrderResponse orderProduct(Integer productId, HttpSession session) {
-        AccountResponse account = accountService.currentAccount(session);
+    public OrderResponse orderProduct(Integer productId) {
+        AccountResponse account = accountService.currentAccount();
         validateAccountId(account);
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy sản phẩm"));
@@ -51,8 +51,8 @@ public class OrderService {
         return toResponse(savedOrder, "Đặt hàng thành công");
     }
 
-    public List<OrderResponse> getHistory(HttpSession session) {
-        AccountResponse account = accountService.currentAccount(session);
+    public List<OrderResponse> getHistory() {
+        AccountResponse account = accountService.currentAccount();
         validateAccountId(account);
         return orderRepository.findByAccountIdOrderByCreatedAtDesc(account.getId())
                 .stream()
