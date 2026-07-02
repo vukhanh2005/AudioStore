@@ -33,6 +33,9 @@ public class Account {
     @Column(nullable = false, length = 100)
     private String password;
 
+    @Column(nullable = false, length = 100)
+    private String role;
+
     public Integer getId() {
         return id;
     }
@@ -83,5 +86,13 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

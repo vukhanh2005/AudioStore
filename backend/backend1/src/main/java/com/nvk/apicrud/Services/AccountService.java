@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -57,6 +58,9 @@ public class AccountService {
         return null;
     }
 
+    public Optional<Account> findAccountByUsername(String username){
+        return accountsRepository.findByUsername(username);
+    }
     public void logout(HttpSession session) {
         session.invalidate();
     }
