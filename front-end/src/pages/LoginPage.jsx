@@ -27,9 +27,10 @@ function LoginPage() {
     setIsLoading(true);
 
     try {
-      const account = await login(formData.username.trim(), formData.password);
-      localStorage.setItem("currentUser", JSON.stringify(account));
-      window.dispatchEvent(new Event("authChanged"));
+      const token = await login(formData.username.trim(), formData.password);
+      localStorage.setItem("mytoken", JSON.stringify(token));
+
+
       setMessage("Đăng nhập thành công");
       setTimeout(() => navigate("/"), 500);
     } catch (error) {
