@@ -96,7 +96,9 @@ public class AccountService {
             return response;
         }
     }
-
+    public ResponseEntity<String> refreshToken(){
+        return ResponseEntity.ok("test");
+    }
     public Optional<Account> findAccountByUsername(String username){
         return accountsRepository.findByUsername(username);
     }

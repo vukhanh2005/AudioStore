@@ -42,6 +42,11 @@ public class AuthController {
         return accountService.currentAccount();
     }
 
+    @PostMapping("/refresh")
+    public ResponseEntity<String> refreshToken(){
+        System.out.println("Client request refresh token.......");
+        return accountService.refreshToken();
+    }
     @PostMapping("/logout")
     public Map<String, String> logout(HttpSession session) {
         accountService.logout(session);

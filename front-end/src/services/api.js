@@ -1,5 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api";
 
+let isRefreskTokenRequest = false;
 async function request(path, options = {}) {
   var items = {
     credentials: "include",
@@ -11,25 +12,36 @@ async function request(path, options = {}) {
   }
   const response = await fetch(`${API_URL}${path}`, items);
   
+  console.log(`Requested to ${path} and got response status ${response.status}`);
   
-  if (!response.ok || response == null) {
-    let message = "Không thể lấy dữ liệu từ server";
-
-    try {
-      const errorData = await response.json();
-      message = errorData.message || message;
-    } catch {
-      message = response.statusText || message;
-    }
-
-    const error = new Error(message);
-    error.status = response.status;
-    throw error;
+  if(response.status == 204){
+    return null;
   }
-
+  if(response.status == 401 && isRefreskTokenRequest == false){
+    try{
+      //request refresh token
+      await refreshToken();
+      return request(path, options);
+    }
+    catch(e){
+      window.location.href = "/";
+    }
+  }
+  if(!request.ok()){
+    throw new Error(`HTTP ${response.status}`);
+  }
   return response.json();
 }
 
+export async function refreshToken(){
+  isRefreskTokenRequest = true;
+  
+  try{
+    return await request("/auth/refresh");
+  }finally{
+    isRefreskTokenRequest = false;
+  }
+}
 export function getProducts() {
   return request("/products");
 }
