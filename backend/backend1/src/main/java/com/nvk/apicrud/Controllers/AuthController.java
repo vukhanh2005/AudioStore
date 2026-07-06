@@ -3,6 +3,7 @@ package com.nvk.apicrud.Controllers;
 import com.nvk.apicrud.DTO.Account.AccountRequest;
 import com.nvk.apicrud.DTO.Account.AccountResponse;
 import com.nvk.apicrud.Services.AccountService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +28,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody AccountRequest request, HttpSession session){
-        accountService.login(request, session);
+    public ResponseEntity<AccountResponse> login(@RequestBody AccountRequest request, HttpServletResponse response){
+        return accountService.login(request, response);
     }
 
     @PostMapping("/register")
@@ -38,7 +39,6 @@ public class AuthController {
 
     @GetMapping("/me")
     public AccountResponse me(){
-        System.out.println("Called me");
         return accountService.currentAccount();
     }
 

@@ -27,12 +27,13 @@ function LoginPage() {
     setIsLoading(true);
 
     try {
-      const token = await login(formData.username.trim(), formData.password);
-      localStorage.setItem("mytoken", JSON.stringify(token));
-
-
+      setMessage("Đang đăng nhập....")
+      const response = await login(formData.username, formData.password);
+      
+      setIsLoading(true);
       setMessage("Đăng nhập thành công");
       setTimeout(() => navigate("/"), 500);
+
     } catch (error) {
       setMessage(error.message || "Đăng nhập thất bại");
     } finally {

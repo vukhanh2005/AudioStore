@@ -8,13 +8,14 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 public class JwtService {
+    public static long timeExpireMilisecond = 60 * 1000; //60 phut
     public static SecretKey secretKey = Keys.hmacShaKeyFor("Ijet22lj6BhJJN9Zc7xxk0ZINJf55GLYBTOKhau2ved".getBytes());
-    public static String generateToken(String username){
+    public static String generateToken(String username, String role){
         return Jwts.builder()
                 .subject(username)
-                .claim("role", "role-admin")
+                .claim("role", role)
                 .issuedAt(new Date()) //Thoi diem tao token
-                .expiration(new Date(System.currentTimeMillis() + 3600000)) //ngay het han
+                .expiration(new Date(System.currentTimeMillis() + timeExpireMilisecond)) //ngay het han
                 .signWith(secretKey)
                 .compact();
     }

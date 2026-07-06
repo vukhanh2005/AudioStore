@@ -14,6 +14,7 @@ function readStoredUser() {
 function TopMenu() {
   const [currentUser, setCurrentUser] = useState(() => null);
 
+  
   useEffect(() => {
     getCurrentAccount()
       .then((account) => {

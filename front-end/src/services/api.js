@@ -55,15 +55,7 @@ export function register(account) {
 }
 
 export function getCurrentAccount() {
-  var token = localStorage.getItem("myToken")
-
-  return request("/auth/me", 
-    token != null ? {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    } : {}
-  );
+  return request("/auth/me")
 }
 
 export function logout() {
